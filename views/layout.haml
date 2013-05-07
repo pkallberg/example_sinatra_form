@@ -1,0 +1,57 @@
+!!! 5
+%html
+  %head
+    %title SMC Form 
+    
+    %script{:type => "text/javascript",
+        :src  => "/js/vendor/jquery-1.7.min.js"}
+    %script{:type => "text/javascript",
+        :src  => "/js/vendor/jquery.form.js"}
+    %script{:type => "text/javascript",
+        :src  => "/js/vendor/jquery.validate.js"}
+
+    %script{:type => "text/javascript"}
+      :plain
+        $(document).ready( function() {
+
+          $('#smcForm').validate({
+            submitHandler: function(form) {
+              jQuery(form).ajaxSubmit({
+                target: "#result"
+              });
+              $("#smcForm :input").attr("disabled", true);
+            }
+          });
+
+          $('#reset').click(function() {
+            $('#smcForm').validate().resetForm();
+            $('#smcForm').clearForm();
+          });
+          
+        } );
+
+    %style{:type => "text/css"}
+      :plain
+        .error {
+            font: normal 10px arial;
+            padding: 3px;
+            margin: 3px;
+            background-color: #ffc;
+            border: 1px solid #c00;
+        }
+        body{font-size:1em;background:#CCC;}
+        h1{margin-bottom:20px;}
+        
+        label{display:block; margin-right: 2em; margin-top:1em; width:250px;}
+        input[type=text]{width:200px;}
+        form{width:500px;margin:2em;}
+        p{font-size:.8em;}
+        
+        
+  %body
+    #header
+      %h1 SMC Form
+    #content
+      =yield
+  %footer
+    
