@@ -14,7 +14,7 @@ SEND_TO = 'edward.sharp@singlemindconsulting.com'
 
 DataMapper::Logger.new($stdout, :debug)
 #DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/smc_form.sqlite")
-DataMapper::setup(:default, "postgres://dbjsslezwfxqmv:x1erCFBn9TfBuXUgGonG6_zx0q@ec2-54-235-155-182.compute-1.amazonaws.com:5432/dfug5nfd2jgqqp")
+DataMapper::setup(:default, ENV['DATABASE_URL'])
 
 class SMCResponseForm
   include DataMapper::Resource
