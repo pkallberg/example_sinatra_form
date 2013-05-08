@@ -6,14 +6,15 @@ require 'haml'
 #require 'datamapper'
 require 'dm-core'
 require 'dm-timestamps'
-require 'dm-sqlite-adapter'
+require 'dm-postgres-adapter'
 require 'dm-migrations'
 require 'pony'
 
 SEND_TO = 'edward.sharp@singlemindconsulting.com'
 
 DataMapper::Logger.new($stdout, :debug)
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/smc_form.sqlite")
+#DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/smc_form.sqlite")
+DataMapper::setup(:default, "postgres://dbjsslezwfxqmv:x1erCFBn9TfBuXUgGonG6_zx0q@ec2-54-235-155-182.compute-1.amazonaws.com:5432/dfug5nfd2jgqqp")
 
 class SMCResponseForm
   include DataMapper::Resource
