@@ -11,6 +11,18 @@ require 'dm-migrations'
 require 'pony'
 
 SEND_TO = 'edward.sharp@singlemindconsulting.com'
+Pony.options = {
+  :via => :smtp,
+  :via_options => {
+    :address => 'smtp.sendgrid.net',
+    :port => '587',
+    :domain => 'heroku.com',
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+}
 
 DataMapper::Logger.new($stdout, :debug)
 #DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/smc_form.sqlite")
