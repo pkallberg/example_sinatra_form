@@ -1,4 +1,4 @@
-%h3 ﻿Example LMS Form
+%h3 ﻿Example inquiry form
 
 %form(action='/' method='POST' id='smcForm')
 
@@ -12,7 +12,7 @@
   %input(type='text' name='tech_contact_phone' title='Please enter some input (at least 3 characters)' class='required' minlength='3')
 
   %label Name of LMS Used:
-  %input{:type => "checkbox", :value => "sakai25", :name => "lms_used[]", :id => "lms_used1"} Sakai 2.5
+  %input{:type => "checkbox", :value => "sakai25", :name => "lms_used[]", :id => "lms_used1", :class => "required"} Sakai 2.5
   %input{:type => "checkbox", :value => "sakai26", :name => "lms_used[]", :id => "lms_used2"} Sakai 2.6
   %input{:type => "checkbox", :value => "sakai27", :name => "lms_used[]", :id => "lms_used3"} Sakai 2.7
   %input{:type => "checkbox", :value => "sakai27", :name => "lms_used[]", :id => "lms_used3"} Sakai 2.7
@@ -25,20 +25,20 @@
   %input{:type => "checkbox", :value => "canvas", :name => "lms_used[]", :id => "lms_used8"} Canvas
 
   %label Other: 
-  %input(type='text' name='other_lms_name' title='Please enter some input (at least 3 characters)' class='required' minlength='3')
+  %input(type='text' name='other_lms_name' title='Please enter some input (at least 3 characters)' minlength='3')
 
   %label Version: 
-  %input(type='text' name='other_lms_version' title='Please enter some input (at least 3 characters)' class='required' minlength='3')
+  %input(type='text' name='other_lms_version' title='Please enter some input (at least 3 characters)' minlength='3')
 
   %br 
   
   %label Is the LMS installed locally? 
-  %input{:type => "radio", :value => "yes", :name => "lms_localhost[]", :id => "lms_localhost1"} Yes
+  %input{:type => "radio", :value => "yes", :name => "lms_localhost[]", :id => "lms_localhost1", :class => "required"} Yes
   %input{:type => "radio", :value => "no", :name => "lms_localhost[]", :id => "lms_localhost2"} No
   %input{:type => "radio", :value => "idk", :name => "lms_localhost[]", :id => "lms_localhost3"} I don't know
   
   %label Is a testing environment available?
-  %input{:type => "radio", :value => "yes", :name => "lms_test_env[]", :id => "test_env1"} Yes
+  %input{:type => "radio", :value => "yes", :name => "lms_test_env[]", :id => "test_env1", :class => "required"} Yes
   %input{:type => "radio", :value => "no", :name => "lms_test_env[]", :id => "test_env2"} No
   %input{:type => "radio", :value => "idk", :name => "lms_test_env[]", :id => "test_env3"} I don't know
   

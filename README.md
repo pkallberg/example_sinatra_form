@@ -8,10 +8,15 @@ A really simple HTML form rendered using HAML templates from a sinatra server us
 * datamapper!
 * sqlite!
 * haml!
+* pony!
 
 ### REQUIREMENTS:
 
-gem install sinatra sinatra_more haml datamapper dm-core dm-timestamps dm-sqlite-adapter dm-migrations --no-ri --no-rdoc
+    gem install sinatra sinatra_more haml datamapper dm-core dm-timestamps dm-sqlite-adapter dm-migrations pony --no-ri --no-rdoc
+
+or use bundler:
+
+    bundle install 
 
 ### USAGE
 

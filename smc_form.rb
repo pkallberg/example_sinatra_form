@@ -8,6 +8,9 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-sqlite-adapter'
 require 'dm-migrations'
+require 'pony'
+
+SEND_TO = 'edward.sharp@singlemindconsulting.com'
 
 DataMapper::Logger.new($stdout, :debug)
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/smc_form.sqlite")
@@ -62,6 +65,11 @@ post '/' do
   @results.updated_at = Time.now
 
   if @results.save
+    Pony.mail :to => SEND_TO,
+        :from => 'SMC_FORM@singlemind.co',
+        :subject => 'SMC_FORM',
+        :body => "#{params.inspect}"
+
     "success!"
   else
     "fail! #{@results.errors.to_s}"
