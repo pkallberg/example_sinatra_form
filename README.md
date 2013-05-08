@@ -6,7 +6,7 @@ A really simple HTML form rendered using HAML templates from a sinatra server us
 
 * sinatra!
 * datamapper!
-* sqlite!
+* postgres!
 * haml!
 * pony!
 
