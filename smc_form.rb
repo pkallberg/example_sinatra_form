@@ -26,7 +26,7 @@ Pony.options = {
 
 DataMapper::Logger.new($stdout, :debug)
 #DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/smc_form.sqlite")
-DataMapper::setup(:default, ENV['POSTGRESQL_URL'])
+DataMapper::setup(:default, "ENV['POSTGRESQL_URL']"
 
 class SMCResponseForm
   include DataMapper::Resource
