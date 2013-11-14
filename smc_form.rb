@@ -10,13 +10,13 @@ require 'dm-postgres-adapter'
 require 'dm-migrations'
 require 'pony'
 
-SEND_TO = 'edward.sharp@singlemindconsulting.com'
+SEND_TO = 'philip@cloud66.com'
 Pony.options = {
   :via => :smtp,
   :via_options => {
     :address => 'smtp.sendgrid.net',
     :port => '587',
-    :domain => 'heroku.com',
+    :domain => 'testing.com',
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
     :authentication => :plain,
@@ -26,7 +26,7 @@ Pony.options = {
 
 DataMapper::Logger.new($stdout, :debug)
 #DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/smc_form.sqlite")
-DataMapper::setup(:default, ENV['DATABASE_URL'])
+DataMapper::setup(:default, ENV['POSTGRESQL_URL'])
 
 class SMCResponseForm
   include DataMapper::Resource
