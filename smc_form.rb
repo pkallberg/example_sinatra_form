@@ -10,7 +10,7 @@ require 'dm-postgres-adapter'
 require 'dm-migrations'
 require 'pony'
 
-SEND_TO = 'philip@cloud66.com'
+SEND_TO = 'yo@yo.com'
 Pony.options = {
   :via => :smtp,
   :via_options => {
